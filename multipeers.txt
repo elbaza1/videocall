@@ -1,0 +1,64 @@
+// Array of remote peers ID and data channel
+var remotePeerIds=[],// You need this to link with specific DOM element
+connections=[]; // This is where you manage multi-connections
+
+// create a Peer
+var peer = new Peer({key: 'YOUR_KEY'}); // You can use your own peerID here
+
+// Get your local peer id
+peer.on('open', function(id) {
+  console.log('My peer ID is: ' + id);
+});
+
+// Start connection with other peer - and handle it
+getConnect(remotePeerId){
+    var conn = peer.connec&t(remotePeerId);
+    handleConnection(conn);
+}
+
+// Ok now you need to handle the received connection too
+peer.on('connection',function(conn){
+     handleConnection(conn);
+});
+
+// Handle connection - this is most important part
+handleConnection(conn){
+    remotePeerIds.push(conn.peer); // Add remote peer to list
+
+    conn.on('open', function() {
+        console.log("Connected with peer: "+remotePeerId);
+        conn.on('data',function(data){
+           // You can do whatever you want with the data from this connection - this is also the main part
+           dataHandler(conn,data);
+        });
+        conn.on('error',function(){
+          // handle error 
+          connectionError(conn);
+        });
+
+        conn.on('close',function(){
+          // Handle connection closed
+          connectionClose(conn);
+        });
+        connections.push(conn);
+    });
+  });
+}
+
+// So now you have multi-connections. If you want to send a message to all other peer, just using for loop with all the connections
+function broadcastMessage(message){
+    for(var i=0;i<connections.length,i++){
+        connections[i].send(message);
+    }
+}
+
+// Or if you want to send a message to a specific peer - you need to know his peerid
+
+function privateMessage(remotePeerId,message){
+   for(var i=0;i<connections.length,i++){
+        if(connections[i].peer==remotePeerId){
+           connections[i].send(message);
+           break;
+        }
+   }
+}
