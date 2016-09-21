@@ -162,7 +162,10 @@ app.get('/logs.txt', function (req, res) {
  // res.send('works,server running');
  res.sendfile('logs.txt');
 });
-
+app.get('/css/style.css',function (req, res) {
+	res.sendfile('/css/style.css');
+	
+	});
 
 // Now listen to your ip and port.
 //server.listen(8081);
@@ -220,6 +223,7 @@ peerServer.on('disconnect', function (id) {
 	 
 
 });
+
 
 
 app.get('/addname',function (req, res) {
