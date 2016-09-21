@@ -162,14 +162,13 @@ app.get('/logs.txt', function (req, res) {
  // res.send('works,server running');
  res.sendfile('logs.txt');
 });
-app.get('/css/style.css',function (req, res) {
-
+/*app.get('/css/style.css',function (req, res) {
 	res.sendfile('style.css');
-	
 	});
 app.get('/js/script.js',function (req, res) {
 res.sendfile('script.js');
 });
+*/
 app.get('/node_modules/picnic/releases/picnic.min.css',function (req, res) {
 res.sendfile('picnic.min.css');
 });
