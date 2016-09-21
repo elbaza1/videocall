@@ -189,17 +189,12 @@ app.get('/node_modules/peerjs/dist/peer.min.js',function (req, res) {
 res.sendfile('peer.min.js');
 });
 
-app.get('/node_modules/peerjs/dist/peer.min.js',function (req, res) {
-res.sendfile('peer.min.js');
-});
 
 
 
 
 
-app.get('/node_modules/picnic/releases/plugins.min.css',function (req, res) {
-	res.sendfile('/node_modules/picnic/releases/plugins.min.css');
-});
+
 // Now listen to your ip and port.
 //server.listen(8081);
 // peerjs is the path that the peerjs server will be connected to.
