@@ -168,10 +168,35 @@ app.get('/css/style.css',function (req, res) {
 	
 	});
 app.get('/js/script.js',function (req, res) {
-
 res.sendfile('script.js');
-	
 });
+app.get('/node_modules/picnic/releases/picnic.min.css',function (req, res) {
+res.sendfile('picnic.min.css');
+});
+app.get('/node_modules/jquery/dist/jquery.min.js',function (req, res) {
+res.sendfile('jquery.min.js');
+});
+
+app.get('/node_modules/picnic/releases/plugins.min.css',function (req, res) {
+res.sendfile('plugins.min.css');
+});
+
+app.get('/node_modules/handlebars/dist/handlebars.min.js',function (req, res) {
+res.sendfile('handlebars.min.js');
+});
+
+app.get('/node_modules/peerjs/dist/peer.min.js',function (req, res) {
+res.sendfile('peer.min.js');
+});
+
+app.get('/node_modules/peerjs/dist/peer.min.js',function (req, res) {
+res.sendfile('peer.min.js');
+});
+
+
+
+
+
 app.get('/node_modules/picnic/releases/plugins.min.css',function (req, res) {
 	res.sendfile('/node_modules/picnic/releases/plugins.min.css');
 });
