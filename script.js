@@ -22,16 +22,16 @@
 			//****
  
  var peer = new Peer({
-    host: 'http://peer-peerjs.44fs.preview.openshiftapps.com/', // 'localhost',
+    host: 'http://peer-peerjs.44fs.preview.openshiftapps.com', // 'localhost',
     port: 8080,
-    path: '/peerjs',
-	bindIp:'127.0.0.1',
-    debug: 3,
-    config: {'iceServers': [
+    path: '/', //peerjs
+    bindIp:'127.0.0.1',
+    debug: 3 //,
+   /* config: {'iceServers': [
     { url: 'stun:stun1.l.google.com:19302' },
     { url: 'turn:numb.viagenie.ca',
       credential: 'muazkh', username: 'webrtc@live.com' }
-    ]}
+    ]}*/
   });	
 
 var remotesIDs = [];
