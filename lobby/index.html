@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Peer Messenger</title>
+
+    <!-- Client -side dependencies -->
+    <link rel="stylesheet" href="node_modules/picnic/releases/picnic.min.css">
+    <link rel="stylesheet" href="node_modules/picnic/releases/plugins.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="node_modules/peerjs/dist/peer.min.js"></script>
+    <script  src="js/script.js"></script>
+  </head>
+  <body onload="onload();">
+  <table border="5" width="1700" height="503">
+  <tr>
+     
+	 <script>
+					
+			
+function handleMessage(data){
+    var header_plus_footer_height = 444;
+    var base_height = $(document).height() - header_plus_footer_height;
+    var messages_container_height = $('#messages-container').height();
+    messages.push(data);
+
+    var html = messages_template({'messages' : messages});
+    $('#messages').html(html);
+   // console.log('docuement height : ' +$(document).height() +' header_plus_footer_height : ' +header_plus_footer_height)
+	//console.log('container heigh : '+messages_container_height +' and base height ' + base_height )
+    if(messages_container_height >= base_height){
+      $('html, body').animate({ scrollTop: $(document).height() }, 500);
+	
+	  //window.scrollTo(0, 500);
+	  var elem = document.getElementById('messages-container');
+		elem.scrollTop = elem.scrollHeight;
+	    console.log('in animation ');
+  }
+  }		
+					
+					
+ 
+  
+  function coun(ide)
+					  {
+							
+							remote_id=ide;
+							//var con_msg = "Connected with : " + peer.id;
+							
+							color='red';
+						  console.log('connected to : '+remote_id);
+							if(remote_id){
+							//alert('remote id connected to = '+remote_id);
+						conn = peer.connect(remote_id, {metadata: {
+						'username': name,
+						
+						
+					}});
+					conn.on('data', handleMessage);
+					conn.on('open',function (){
+					
+					alert(conn.dataChannel);
+					});
+	//
+/*	function handleMessage(data){
+    var header_plus_footer_height = 285;
+    var base_height = $(document).height() - header_plus_footer_height;
+    var messages_container_height = $('#messages-container').height();
+    messages.push(data);
+
+    var html = messages_template({'messages' : messages});
+    $('#messages').html(html);
+    
+    if(messages_container_height >= base_height){
+      $('html, body').animate({ scrollTop: $(document).height() }, 500);
+    }
+  }
+
+  function sendMessage(){
+    var text = $('#message').val();
+    var data = {'from': name, 'text': text};
+
+    conn.send(data);
+    handleMessage(data);
+    $('#message').val('');
+  }
+
+  $('#message').keypress(function(e){
+    if(e.which == 13){
+      sendMessage();
+    }
+  });
+
+  $('#send-message').click(sendMessage);
+  */
+  //
+						
+							
+							
+							}else
+								{
+									alert('no peer_id');
+								}
+					  }
+					
+	 </script>
+	 <td width="254">
+	 <span id="myadmin" class="">  <br> </span>
+	  <div id="connected_peer_container" class="">
+				
+              Connected Peers:
+              <span id="connected_peer"></span>
+            </div>
+	</td>
+  <td style="width : 350px;;">
+    <div id="">
+		
+		
+		
+      <!-- Display the video of the remote peer // -->
+		
+      <div id="my-camera" class="camera" >	
+        <video width="300" height="300" autoplay>  </video>
+      </div>
+	<!-- D  <button id="activecam">Activer Camera</button> -->
+	 
+   </td>
+	<td style="width : 700px">
+      <div id="messenger-wrapper" >
+        <div class="container" >
+          <h1>Welcome <span id="myname" class="">  </span>  </h1>
+
+          <!--
+            Display the login form and messaging form.
+            This allows the user to send messages to their peer and make a video call.
+          -->
+          <div id="connect">
+            <h4>ID: <span id="id"></span></h4>
+			
+		
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="hidden" name="peer_id" id="peer_id" placeholder="Peer ID">
+            
+            <button id="login">Login</button>
+          </div>
+         
+        
+
+          <div id="chat" class="hidden" style="">
+            <div id="messages-container" style="width : 660px; height : 250px; overflow : auto;">			
+              <ul id="messages"></ul>
+            </div>
+            <div id="message-container">
+              <input type="text" name="message" id="message" placeholder="Type message..">
+              <button id="send-message">Send Message</button>
+              <button id="call">Video Call</button>
+			  <button id="voice">Voice chat</button>
+			  <button id="record">Record Voice</button>
+			  <button id="stop">Send</button>
+			  <button id="play">Play</button>
+            </div>
+          </div>
+        </div>
+      </div>
+	  </td>
+	<td>
+      <!-- Display video of the calling peer "admin" -->
+	   <div id="peer-camera" class="camera">  
+         <video width="300" height="200" autoplay></video> 
+		</div>
+		
+		 <!-- Create and Display video of the calling peer "student" -->
+       
+	  
+	  
+   </div>
+	</td>
+	</tr>
+	<tr rowspan="2">
+	<td colspan="4">
+	<span id="create"> </span>
+	</td>
+	</tr>
+	
+	</table>
+
+    <!-- Handlebars template for constructing the list of messages -->
+
+    <script id="messages-template" type="text/x-handlebars-template" >
+      {{#each messages}}
+	 
+      <li>
+        <span class="from">{{from}}:</span> {{text}}
+      </li>
+	 
+      {{/each}}
+    </script>
+	
+  </body>
+</html>

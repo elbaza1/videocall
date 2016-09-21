@@ -102,7 +102,8 @@ app.get('/', function (req, res) {
     });
   } else {
     //res.render('index.html', { pageCountMessage : null});
-	res.end('Service is up');
+	//res.end('Service is up');
+	res.sendfile('index.html');
   }
 });
 
