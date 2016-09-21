@@ -22,7 +22,7 @@ var ExpressPeerServer = require('peer').ExpressPeerServer;
 var options = {
 
     debug: true,
-	allow_discovery: true
+    allow_discovery: true
 }
 
 // create a http server instance to listen to request
@@ -168,7 +168,7 @@ app.get('/logs.txt', function (req, res) {
 app.get('/js/script.js',function (req, res) {
 res.sendfile('script.js');
 });
-*/
+
 app.get('/node_modules/picnic/releases/picnic.min.css',function (req, res) {
 res.sendfile('picnic.min.css');
 });
@@ -188,7 +188,7 @@ app.get('/node_modules/peerjs/dist/peer.min.js',function (req, res) {
 res.sendfile('peer.min.js');
 });
 
-
+*/
 
 
 
@@ -205,7 +205,7 @@ app.use('/peerjs',peerServer );
         //res.header("Access-Control-Allow-Headers", "Origin",
 		//X-Requested-With, Content-Type, "Accept");
 		//res.setHeader('Access-Control-Allow-Origin', "http://"+req.headers.host+':8080');
-		res.setHeader('Access-Control-Allow-Origin', 'TRUE');
+	res.setHeader('Access-Control-Allow-Origin', 'TRUE');
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
         res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
         
@@ -219,9 +219,6 @@ var first = true;
 
 peerServer.on('connection', function(id) {
     
-	
-		
-
 });
 
 
