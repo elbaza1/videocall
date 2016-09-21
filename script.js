@@ -23,7 +23,7 @@
  
  var peer = new Peer({
     host: 'http://peer-peerjs.44fs.preview.openshiftapps.com', // 'localhost',
-    port: 8080,
+    port: 9001,
     path: '/peerjs', //peerjs
     //bindIp:'127.0.0.1',
     debug: 3 ,
