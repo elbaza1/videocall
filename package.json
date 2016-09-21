@@ -2,6 +2,22 @@
   "name": "peer-messenger-peerserver",
   "version": "0.0.1",
   "dependencies": {
+    "express": "^4.14.0",
     "peer": "^0.2.8"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elbaza1/videocall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elbaza1/videocall/issues"
+  },
+  "homepage": "https://github.com/elbaza1/videocall#readme",
+  "description": ""
 }

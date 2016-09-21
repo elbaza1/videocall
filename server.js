@@ -28,8 +28,23 @@ var server = require('http').createServer(app);
   res.sendfile(__dirname+'/index.html');
 });
 */
+app.get('/', function (req, res) {
+ // res.send('works,server running');
+ res.end('Service is up');
+});
+var port =  process.env.OPENSHIFT_NODEJS_PORT ||8081;
+var server_id_add =  process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 // Now listen to your ip and port.
-server.listen(8081);
+//server.listen(port);
+app.listen(port,server_id_add,function(){
+	
+ console.log("listening on "+server_id_add +" port " +port);	
+});
+
+
+
+// Now listen to your ip and port.
+//server.listen(8081);
 // peerjs is the path that the peerjs server will be connected to.
 var peerServer = ExpressPeerServer(server, options);
 app.use('/peerjs',peerServer );
