@@ -167,6 +167,11 @@ app.get('/css/style.css',function (req, res) {
 	res.sendfile('/css/style.css');
 	
 	});
+app.get('/js/script.js',function (req, res) {
+
+res.sendfile('/js/script.js');
+	
+});
 app.get('/node_modules/picnic/releases/plugins.min.css',function (req, res) {
 	res.sendfile('/node_modules/picnic/releases/plugins.min.css');
 });
