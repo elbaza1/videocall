@@ -163,10 +163,13 @@ app.get('/logs.txt', function (req, res) {
  res.sendfile('logs.txt');
 });
 app.get('/css/style.css',function (req, res) {
+
 	res.sendfile('/css/style.css');
 	
 	});
-
+app.get('/node_modules/picnic/releases/plugins.min.css',function (req, res) {
+	res.sendfile('/node_modules/picnic/releases/plugins.min.css');
+});
 // Now listen to your ip and port.
 //server.listen(8081);
 // peerjs is the path that the peerjs server will be connected to.
