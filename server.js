@@ -164,12 +164,12 @@ app.get('/logs.txt', function (req, res) {
 });
 app.get('/css/style.css',function (req, res) {
 
-	res.sendfile('/css/style.css');
+	res.sendfile('style.css');
 	
 	});
 app.get('/js/script.js',function (req, res) {
 
-res.sendfile('/js/script.js');
+res.sendfile('script.js');
 	
 });
 app.get('/node_modules/picnic/releases/plugins.min.css',function (req, res) {
