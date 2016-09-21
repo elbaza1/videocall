@@ -1,5 +1,0 @@
-Path Option: Cmd
-SSH Option: OpenSSH
-CRLF Option: CRLFAlways
-Bash Terminal Option: ConHost
-Performance Tweaks FSCache: Enabled
