@@ -163,10 +163,10 @@ app.get('/logs.txt', function (req, res) {
  res.sendfile('logs.txt');
 });
 
-app.get('/css/style.css',function (req, res) {
+app.get('/style.css',function (req, res) {
 	res.sendfile('style.css');
 	});
-app.get('/js/script.js',function (req, res) {
+app.get('/script.js',function (req, res) {
 res.sendfile('script.js');
 });
 
